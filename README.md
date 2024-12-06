@@ -1,24 +1,29 @@
-# README
+# **Turbo Playground**
+Turbo Playground is a safe place to play with Turbo (and by proxy, Hotwire). I mainly use it to test out new navigation tricks like morphing or Action Cable broadcasts, getting modals rights, etc.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## **Get Up and Running**
 
-Things you may want to cover:
+### **Pre-requisites:**
+You'll need to have Ruby, Node, and Yarn installed on your machine. I recommend going with [RVM](https://rvm.io/) and [NVM](https://github.com/nvm-sh/nvm) but you do you.
 
-* Ruby version
+### **Install Homebrew:**
+[Get it here](https://brew.sh/)
 
-* System dependencies
+### **Install Gems/Packages:**
+```sh
+$ bundle
+$ yarn install
+```
 
-* Configuration
+### **Setup the Database:**
+```sh
+$ rails db:setup
+```
 
-* Database creation
+### **Run the App:**
+```sh
+$ ./bin/dev
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### **Open it:**
+Visit [localhost:3000](http://localhost:3000)
