@@ -23,7 +23,17 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="flex flex-row h-lvh w-lvw">
+    <sidebar class="basis-1/4 grow-0 shrink-0 bg-red-200">
+      <%= yield :sidebar %>
+    </sidebar>
+
+    <main class="grow bg-blue-200">
+      <%= yield :main %>
+    </main>
+
+    <dialog data-controller="dialog" class="fixed inset-0 h-lvh w-lvw max-h-lvh max-w-lvw bg-gray-500 bg-opacity-75 backdrop-blur-sm">
+      <%= yield :dialog %>
+    </dialog>
   </body>
 </html>
