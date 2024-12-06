@@ -1,5 +1,6 @@
-<% content_for :dialog do %>
-  <div>
+<%# well, yea this obviously has to be here.. %>
+<%= turbo_frame_tag "dialog" do %>
+  <a href="/" data-action="click->dialog#close" data-turbo-frame="dialog" class="cursor-pointer">
     this is dialog content
-  </div>
+  </a>
 <% end %>

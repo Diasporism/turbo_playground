@@ -3,10 +3,10 @@
     Sidebar Content
   </div>
   <ul class="flex flex-col gap-4 m-4">
-    <button type="button" class="bg-slate-400/80 cursor-pointer">Main</button>
-    <button type="button" class="bg-slate-400/80 cursor-pointer">Settings</button>
-    <button type="button" class="bg-slate-400/80 cursor-pointer">Options</button>
-    <button type="button" class="bg-slate-400/80 cursor-pointer">Other Stuff</button>
+    <a href="/dialog" data-turbo-frame="dialog" class="bg-slate-400/80 cursor-pointer">Main</a>
+    <a href="/dialog" data-turbo-frame="dialog" class="bg-slate-400/80 cursor-pointer">Settings</a>
+    <a href="/dialog" data-turbo-frame="dialog" class="bg-slate-400/80 cursor-pointer">Options</a>
+    <a href="/dialog" data-turbo-frame="dialog" class="bg-slate-400/80 cursor-pointer">Other Stuff</a>
   </ul>
 <% end %>
 
@@ -15,17 +15,13 @@
     Main Content
   </div>
   <ul class="flex flex-row flex-wrap gap-4 m-4">
-    <button type="button" class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer">&nbsp;</button>
-    <button type="button" class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer">&nbsp;</button>
-    <button type="button" class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer">&nbsp;</button>
-    <button type="button" class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer">&nbsp;</button>
-    <button type="button" class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer">&nbsp;</button>
-    <button type="button" class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer">&nbsp;</button>
-    <button type="button" class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer">&nbsp;</button>
-    <button type="button" class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer">&nbsp;</button>
-    <button type="button" class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer">&nbsp;</button>
-    <button type="button" class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer">&nbsp;</button>
-    <button type="button" class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer">&nbsp;</button>
-    <button type="button" class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer">&nbsp;</button>
+    <% (1.. 30).to_a.sample.times do |n| %>
+      <a href="/dialog" data-turbo-frame="dialog" class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer">&nbsp;</a>
+    <% end %>
   </ul>
+<% end %>
+
+<% content_for :dialog do %>
+  <%# ooooh.... could it here? %>
+  <%= turbo_frame_tag "dialog" %>
 <% end %>

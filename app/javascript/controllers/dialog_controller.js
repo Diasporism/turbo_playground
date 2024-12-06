@@ -1,11 +1,23 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  connect () {
-    console.log("hello")
+  initialize () {
+    addEventListener("turbo:before-frame-render", (event) => {
+      if (event.detail.newFrame.id === 'dialog') {
+        this.open()
+      }
+    })
   }
 
   disconnect () {
-    console.log("goodbye")
+    this.close()
+  }
+
+  open = () => {
+    this.element.showModal()
+  }
+
+  close = () => {
+    this.element.close()
   }
 }
