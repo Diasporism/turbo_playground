@@ -14,14 +14,20 @@
   <div class="m-4">
     Main Content
   </div>
-  <ul class="flex flex-row flex-wrap gap-4 m-4">
-    <% (1.. 30).to_a.sample.times do |n| %>
-      <a href="/dialog" data-turbo-frame="dialog" class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer">&nbsp;</a>
+  <ul id="main-content-list" class="flex flex-row flex-wrap gap-4 m-4" data-turbo-permanent>
+    <% (99.. 200).to_a.sample.times do |n| %>
+      <a
+        href="/dialog"
+        data-turbo-action="advance"
+        data-turbo-frame="dialog"
+        class="h-40 w-40 border-2 bg-slate-400/80 cursor-pointer"
+      >
+        &nbsp;
+      </a>
     <% end %>
   </ul>
 <% end %>
 
 <% content_for :dialog do %>
-  <%# ooooh.... could it here? %>
   <%= turbo_frame_tag "dialog" %>
 <% end %>
