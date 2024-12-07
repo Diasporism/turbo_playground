@@ -1,6 +1,16 @@
-<%# well, yea this obviously has to be here.. %>
-<%= turbo_frame_tag "dialog" do %>
-  <a href="/" data-action="click->dialog#close" data-turbo-frame="dialog" class="cursor-pointer">
-    this is dialog content
-  </a>
+<% content_for :dialog do %>
+  <%= turbo_frame_tag "dialog" do %>
+    <div
+      class="absolute inset-0 h-lvh w-lvw bg-gray-500 bg-opacity-75 backdrop-blur-sm"
+      data-action="click->dialog#close"
+      data-dialog-target="content"
+      data-dialog-close-url-param="/"
+      data-dialog-close-turbo-frame-param="_top"
+      data-dialog-close-turbo-action-param="advance"
+    >
+      <div class="h-fit w-fit m-auto cursor-pointer">
+        this is dialog content
+      </div>
+    </div>
+  <% end %>
 <% end %>

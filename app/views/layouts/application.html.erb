@@ -20,16 +20,15 @@
   </head>
 
   <body class="flex flex-row h-lvh w-lvw">
-    <sidebar class="basis-1/4 grow-0 shrink-0 bg-red-200">
+    <sidebar class="basis-1/4 grow-0 shrink-0 bg-red-200 overflow-y-auto">
       <%= yield :sidebar %>
     </sidebar>
 
-    <main class="grow bg-blue-200">
+    <main class="grow bg-blue-200 overflow-y-auto">
       <%= yield :main %>
     </main>
 
-    <dialog data-controller="dialog" class="fixed inset-0 h-lvh w-lvw max-h-full max-w-full bg-gray-500 bg-opacity-75 backdrop-blur-sm">
-      <%# Let's play the game "where to hide `turbo_frame_tag "dialog"` %>
+    <dialog id="global-dialog" data-controller="dialog" class="z-40 fixed isolate inset-0 h-lvh w-lvw max-h-full max-w-full bg-transparent">
       <%= yield :dialog %>
     </dialog>
   </body>
